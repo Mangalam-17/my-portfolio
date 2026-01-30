@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { navLinks } from "../data/links";
 
 export default function Navbar() {
   return (
@@ -15,18 +16,15 @@ export default function Navbar() {
         </div>
 
         <div className="flex gap-8 text-sm">
-          <Link to="/" className="hover:text-neutral-500 transition">
-            Home
-          </Link>
-          <Link to="/projects" className="hover:text-neutral-500 transition">
-            Projects
-          </Link>
-          <Link to="/about" className="hover:text-neutral-500 transition">
-            About
-          </Link>
-          <Link to="/contact" className="hover:text-neutral-500 transition">
-            Contact
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className="hover:text-neutral-500 transition"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </motion.nav>
