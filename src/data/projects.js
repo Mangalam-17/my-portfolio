@@ -1,5 +1,24 @@
 export const projects = [
   {
+    title: "Shortlisto",
+    image: "/projects/shortlisto.png",
+    live: "https://shortlisto.vercel.app",
+    source: "https://github.com/Mangalam-17/Shortlisto",
+    description:
+      "Production-ready full-stack recruitment management platform streamlining hiring workflows, candidate management, online technical assessments, analytics, and secure role-based access control.",
+    tech: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.IO",
+      "JWT Auth",
+      "React Query",
+      "Railway",
+      "Vercel",
+    ],
+  },
+  {
     title: "Interview Mate",
     image: "/projects/interview.png",
     live: "https://interview-mate-frontend.vercel.app/",
@@ -32,7 +51,22 @@ export const projects = [
       "Tailwind",
       "JWT",
       "REST APIs",
-      "SPA Workflows",
+    ],
+  },
+  {
+    title: "BlogSpace",
+    image: "/projects/blogspace.png",
+    live: "https://blogspace-rvos.onrender.com/",
+    source: "https://github.com/Mangalam-17/BlogSpace",
+    description:
+      "A clean blogging platform where users can publish, read, and share blogs. Built with server-side rendering using EJS, Express, and MongoDB.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "EJS",
+      "MongoDB",
+      "Bootstrap",
+      "JavaScript",
     ],
   },
 ];
