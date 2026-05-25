@@ -119,16 +119,6 @@ export default function Home() {
               variants={itemVariants}
               className="flex flex-wrap items-center gap-6 pt-2"
             >
-              <div className="space-y-0.5">
-                <p className="text-xl font-bold dark:text-white">4</p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-500">Projects Shipped</p>
-              </div>
-
-              <div className="space-y-0.5">
-                <p className="text-xl font-bold dark:text-white">24h</p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-500">Response Time</p>
-              </div>
-
               <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0" />
                 <div>
