@@ -117,18 +117,25 @@ export default function Home() {
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              className="flex gap-8 pt-2"
+              className="flex flex-wrap items-center gap-6 pt-2"
             >
-              {[
-                { value: "4", label: "Projects Shipped" },
-                { value: "1yr+", label: "Experience" },
-                { value: "24h", label: "Response Time" },
-              ].map(({ value, label }) => (
-                <div key={label} className="space-y-0.5">
-                  <p className="text-xl font-bold dark:text-white">{value}</p>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-500">{label}</p>
+              <div className="space-y-0.5">
+                <p className="text-xl font-bold dark:text-white">4</p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-500">Projects Shipped</p>
+              </div>
+
+              <div className="space-y-0.5">
+                <p className="text-xl font-bold dark:text-white">24h</p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-500">Response Time</p>
+              </div>
+
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-semibold dark:text-white leading-tight">Ex-Intern · ROVO Automation</p>
+                  <p className="text-[10px] text-neutral-500 dark:text-neutral-500 leading-tight">Full Stack Developer</p>
                 </div>
-              ))}
+              </div>
             </motion.div>
           </div>
 
