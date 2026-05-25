@@ -28,9 +28,11 @@ export default function Navbar({ dark, setDark }) {
       <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <NavLink to="/" className="group flex items-center gap-2">
-          <span className="w-7 h-7 rounded-lg bg-accent-500 flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-accent-500/30 group-hover:scale-110 transition-transform">
-            M
-          </span>
+          <img
+            src="/favicon.svg"
+            alt="Mangalam logo"
+            className="w-7 h-7 rounded-lg group-hover:scale-110 transition-transform dark:invert"
+          />
           <span className="text-base font-semibold tracking-tight dark:text-white">
             Mangalam
           </span>

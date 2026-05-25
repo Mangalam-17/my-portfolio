@@ -120,8 +120,8 @@ export default function Home() {
               className="flex gap-8 pt-2"
             >
               {[
-                { value: "2+", label: "Projects Shipped" },
-                { value: "MERN", label: "Stack" },
+                { value: "4", label: "Projects Shipped" },
+                { value: "1yr+", label: "Experience" },
                 { value: "24h", label: "Response Time" },
               ].map(({ value, label }) => (
                 <div key={label} className="space-y-0.5">
