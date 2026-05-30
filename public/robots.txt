@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mangalam-portfolio.vercel.app/sitemap.xml
+Sitemap: https://my-portfolio-ecru-xi-31.vercel.app/sitemap.xml
