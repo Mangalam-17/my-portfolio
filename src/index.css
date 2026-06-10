@@ -50,6 +50,55 @@ html { scroll-behavior: smooth; }
   background-clip: text;
 }
 
+.headline-shimmer {
+  position: relative;
+  display: inline-block;
+  background-size: 220% 100%;
+  animation: headlinePulse 2s ease-in-out infinite, headlineShimmer 4s ease-in-out infinite;
+}
+
+.hero-keyword {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  color: #262626;
+  transition: color 350ms ease, text-shadow 350ms ease;
+}
+
+.dark .hero-keyword {
+  color: #e5e5e5;
+}
+
+.hero-keyword::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1em;
+  height: 0.12em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 420ms ease, opacity 420ms ease;
+}
+
+.hero-keyword.is-active {
+  color: #4f46e5;
+  text-shadow: 0 0 18px rgba(99, 102, 241, 0.22);
+}
+
+.dark .hero-keyword.is-active {
+  color: #a78bfa;
+  text-shadow: 0 0 22px rgba(139, 92, 246, 0.36);
+}
+
+.hero-keyword.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
 /* ── Glass card ── */
 .glass {
   background: rgba(255, 255, 255, 0.7);
@@ -77,3 +126,25 @@ html { scroll-behavior: smooth; }
   50%       { opacity: 0; }
 }
 .cursor-blink { animation: blink 1s step-end infinite; }
+
+@keyframes headlinePulse {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(99, 102, 241, 0)); }
+  50% { filter: drop-shadow(0 0 18px rgba(99, 102, 241, 0.24)); }
+}
+
+@keyframes headlineShimmer {
+  0%, 35% { background-position: 0% 50%; }
+  55%, 100% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headline-shimmer,
+  .cursor-blink {
+    animation: none;
+  }
+
+  .hero-keyword,
+  .hero-keyword::after {
+    transition: none;
+  }
+}

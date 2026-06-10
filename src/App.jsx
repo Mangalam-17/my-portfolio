@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
+import Experience from "./pages/Experience";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Navbar from "./components/Navbar";
@@ -46,6 +47,7 @@ export default function App() {
             <Route path="*" element={<Home />} />
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/experience" element={<Experience />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contacts />} />
           </Routes>

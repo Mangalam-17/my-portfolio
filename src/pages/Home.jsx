@@ -5,41 +5,79 @@ import { ArrowRight, Download, Sparkles } from "lucide-react";
 import TechCard from "../components/TechCard";
 import { skillCategories } from "../data/skills";
 
-const roles = [
-  "Full Stack Developer",
-  "MERN Stack Engineer",
-  "React Developer",
-  "Backend Engineer",
+const headline = "Full Stack Developer";
+
+const paragraphSegments = [
+  { text: "Specializing in the " },
+  { text: "MERN stack", keywordIndex: 0 },
+  { text: " — building " },
+  { text: "scalable web applications", keywordIndex: 1 },
+  { text: " with " },
+  { text: "REST APIs", keywordIndex: 2 },
+  { text: ", " },
+  { text: "authentication", keywordIndex: 3 },
+  { text: ", and clean " },
+  { text: "component-driven UI", keywordIndex: 4 },
+  { text: " architectures." },
 ];
 
-function TypewriterText({ words }) {
-  const [index, setIndex] = useState(0);
+function TypewriterText({ text }) {
   const [displayed, setDisplayed] = useState("");
-  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const current = words[index];
     let timeout;
 
-    if (!deleting && displayed.length < current.length) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80);
-    } else if (!deleting && displayed.length === current.length) {
-      timeout = setTimeout(() => setDeleting(true), 2000);
-    } else if (deleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 45);
-    } else if (deleting && displayed.length === 0) {
-      setDeleting(false);
-      setIndex((i) => (i + 1) % words.length);
+    if (displayed.length < text.length) {
+      timeout = setTimeout(() => setDisplayed(text.slice(0, displayed.length + 1)), 65);
     }
 
     return () => clearTimeout(timeout);
-  }, [displayed, deleting, index, words]);
+  }, [displayed, text]);
 
   return (
-    <span className="gradient-text">
+    <span className="gradient-text headline-shimmer">
       {displayed}
-      <span className="cursor-blink text-accent-500">|</span>
+      {displayed.length < text.length && (
+        <span className="cursor-blink text-accent-500">|</span>
+      )}
     </span>
+  );
+}
+
+function AnimatedHeroParagraph() {
+  const [activeKeyword, setActiveKeyword] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveKeyword((current) => (current + 1) % 5);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.p
+      variants={itemVariants}
+      className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg"
+    >
+      {paragraphSegments.map((segment, index) => {
+        return (
+          <motion.span
+            key={`${segment.text}-${index}`}
+            initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.45, delay: 1.05 + index * 0.055, ease: "easeOut" }}
+            className={
+              segment.keywordIndex !== undefined
+                ? `hero-keyword ${segment.keywordIndex === activeKeyword ? "is-active" : ""}`
+                : undefined
+            }
+          >
+            {segment.text}
+          </motion.span>
+        );
+      })}
+    </motion.p>
   );
 }
 
@@ -63,7 +101,7 @@ export default function Home() {
     >
       <section className="pt-32 pb-20 max-w-6xl mx-auto px-6">
         {/* HERO */}
-        <div className="grid md:grid-cols-2 gap-12 items-center min-h-[70vh]">
+        <div className="grid lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)] gap-12 items-center min-h-[70vh]">
           {/* LEFT */}
           <div className="space-y-6">
             {/* Available badge */}
@@ -78,22 +116,12 @@ export default function Home() {
               <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 tracking-widest uppercase">
                 Hi, I'm Mangalam 👋
               </p>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight dark:text-white">
-                <TypewriterText words={roles} />
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold leading-tight tracking-tight whitespace-nowrap dark:text-white">
+                <TypewriterText text={headline} />
               </h1>
             </motion.div>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg"
-            >
-              Specializing in the{" "}
-              <span className="font-semibold text-neutral-800 dark:text-neutral-200">
-                MERN stack
-              </span>{" "}
-              — building scalable web applications with REST APIs, authentication,
-              and clean component-driven UI architectures.
-            </motion.p>
+            <AnimatedHeroParagraph />
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
               <Link
@@ -132,7 +160,7 @@ export default function Home() {
           {/* RIGHT — Profile image */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center md:justify-end"
+            className="flex justify-center lg:justify-end"
           >
             <div className="relative">
               {/* Glow ring */}
@@ -146,7 +174,7 @@ export default function Home() {
                 alt="Mangalam Mishra"
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                className="relative w-72 md:w-80 rounded-2xl border-2 border-white dark:border-neutral-800 shadow-2xl select-none object-cover"
+                className="relative w-72 lg:w-80 rounded-2xl border-2 border-white dark:border-neutral-800 shadow-2xl select-none object-cover"
               />
 
               {/* Floating badge */}
