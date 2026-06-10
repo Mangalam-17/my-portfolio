@@ -8,17 +8,15 @@ import { skillCategories } from "../data/skills";
 const headline = "Full Stack Developer";
 
 const paragraphSegments = [
-  { text: "Specializing in the " },
-  { text: "MERN stack", keywordIndex: 0 },
-  { text: " — building " },
-  { text: "scalable web applications", keywordIndex: 1 },
+  { text: "Building " },
+  { text: "scalable web applications", keywordIndex: 0 },
   { text: " with " },
-  { text: "REST APIs", keywordIndex: 2 },
-  { text: ", " },
-  { text: "authentication", keywordIndex: 3 },
-  { text: ", and clean " },
-  { text: "component-driven UI", keywordIndex: 4 },
-  { text: " architectures." },
+  { text: "modern technologies", keywordIndex: 1 },
+  { text: ", crafting " },
+  { text: "seamless user experiences", keywordIndex: 2 },
+  { text: ", and transforming ideas into " },
+  { text: "production-ready digital solutions", keywordIndex: 3 },
+  { text: "." },
 ];
 
 function TypewriterText({ text }) {
@@ -49,7 +47,7 @@ function AnimatedHeroParagraph() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveKeyword((current) => (current + 1) % 5);
+      setActiveKeyword((current) => (current + 1) % 4);
     }, 2000);
 
     return () => clearInterval(interval);
