@@ -148,9 +148,9 @@ export default function Home() {
               className="flex flex-wrap items-center gap-6 pt-2"
             >
               <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
                 <div>
-                  <p className="text-xs font-semibold dark:text-white leading-tight">Ex-Intern · ROVO Automation</p>
+                  <p className="text-xs font-semibold dark:text-white leading-tight">Software Developer Intern · Genkaix</p>
                   <p className="text-[10px] text-neutral-500 dark:text-neutral-500 leading-tight">Full Stack Developer</p>
                 </div>
               </div>
