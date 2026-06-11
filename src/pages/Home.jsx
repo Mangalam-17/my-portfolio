@@ -18,7 +18,7 @@ const techPills = [
 const paragraphLines = [
   { prefix: "Building ", keyword: "scalable applications", suffix: "," },
   { prefix: "crafting ", keyword: "seamless experiences", suffix: "," },
-  { prefix: "and transforming ideas into ", keyword: "digital products", suffix: "." },
+  { prefix: "transforming ", keyword: "digital products", suffix: "." },
 ];
 
 function TypewriterText({ text }) {
