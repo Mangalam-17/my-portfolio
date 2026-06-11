@@ -15,8 +15,8 @@ export const experiences = [
   {
     role: "Software Developer Intern",
     company: "Genkaix",
-    period: "May 2026 - Present",
-    type: "Current",
+    period: "May 2026 - June 2026",
+    type: "Internship",
     stack: ["MERN Stack", "React.js", "Node.js", "Express.js", "REST APIs"],
     bullets: [
       "Building and maintaining production-grade full-stack applications using the MERN stack, with a focus on scalable and reliable features across frontend and backend systems.",
