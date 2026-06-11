@@ -34,7 +34,7 @@ export default function Navbar({ dark, setDark }) {
             className="w-7 h-7 rounded-lg group-hover:scale-110 transition-transform dark:invert"
           />
           <span className="text-base font-semibold tracking-tight dark:text-white">
-            Mangalam
+            Mangalam's Portfolio
           </span>
         </NavLink>
 

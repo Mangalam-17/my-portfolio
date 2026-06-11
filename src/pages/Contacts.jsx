@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Clock, Globe, Briefcase } from "lucide-react";
 
 const contactLinks = [
   {
@@ -12,6 +12,7 @@ const contactLinks = [
     color: "text-rose-500",
     bg: "bg-rose-50 dark:bg-rose-500/10",
     border: "border-rose-200 dark:border-rose-500/30",
+    hoverGlow: "group-hover:shadow-rose-500/20",
   },
   {
     icon: FaLinkedin,
@@ -21,6 +22,7 @@ const contactLinks = [
     color: "text-blue-500",
     bg: "bg-blue-50 dark:bg-blue-500/10",
     border: "border-blue-200 dark:border-blue-500/30",
+    hoverGlow: "group-hover:shadow-blue-500/20",
   },
   {
     icon: FaGithub,
@@ -30,6 +32,28 @@ const contactLinks = [
     color: "text-neutral-700 dark:text-neutral-300",
     bg: "bg-neutral-100 dark:bg-neutral-800",
     border: "border-neutral-200 dark:border-neutral-700",
+    hoverGlow: "group-hover:shadow-neutral-500/20",
+  },
+];
+
+const quickInfo = [
+  {
+    icon: Clock,
+    label: "Response Time",
+    value: "Within 24 hours",
+    color: "text-accent-500",
+  },
+  {
+    icon: Globe,
+    label: "Time Zone",
+    value: "IST (GMT+5:30)",
+    color: "text-purple-500",
+  },
+  {
+    icon: Briefcase,
+    label: "Availability",
+    value: "Full-time & Internships",
+    color: "text-emerald-500",
   },
 ];
 
@@ -76,45 +100,118 @@ export default function Contact() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
+          className="mb-14"
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-accent-500 dark:text-accent-400 mb-2">
+          <p className="text-xs font-semibold tracking-widest uppercase text-accent-500 dark:text-accent-400 mb-3">
             Contact
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight dark:text-white">
+          
+          {/* Availability Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 rounded-full"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+              Available for Opportunities
+            </span>
+          </motion.div>
+          
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight dark:text-white mb-4">
             Get in Touch
           </h1>
-          <p className="mt-4 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed max-w-xl mx-auto">
-            Open to full-stack roles, internship positions, collaborations, and
-            tech discussions. I usually respond within 24 hours.
-          </p>
+          
+          {/* Animated Description with Gradient Highlights */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-3xl"
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Open to{" "}
+              <span className="tech-highlight">full-stack roles</span>,{" "}
+              <span className="tech-highlight">internship positions</span>, and{" "}
+              <span className="tech-highlight">collaborations</span>.{" "}
+            </motion.span>
+            
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              Let's discuss{" "}
+              <span className="tech-highlight">tech</span>,{" "}
+              <span className="tech-highlight">projects</span>, or opportunities — I typically respond within{" "}
+              <span className="tech-highlight">24 hours</span>.
+            </motion.span>
+          </motion.div>
+        </motion.div>
+        
+        {/* Quick Info Cards */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12"
+        >
+          {quickInfo.map((info, i) => (
+            <motion.div
+              key={info.label}
+              variants={itemVariants}
+              className="flex items-center gap-3 p-4 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 hover:border-accent-300 dark:hover:border-accent-500/40 transition-all duration-300"
+            >
+              <div className={`w-8 h-8 rounded-lg bg-accent-50 dark:bg-accent-500/10 flex items-center justify-center`}>
+                <info.icon size={16} className={info.color} />
+              </div>
+              <div>
+                <p className="text-xs text-neutral-500 dark:text-neutral-500 font-medium">{info.label}</p>
+                <p className="text-sm font-semibold dark:text-white">{info.value}</p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* LEFT — Contact links */}
+        <div className="grid md:grid-cols-1 gap-10">
+          {/* Contact links */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-4"
+            className="space-y-4 max-w-2xl mx-auto w-full"
           >
-            <motion.p
+            <motion.div
               variants={itemVariants}
-              className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-2"
+              className="flex items-center gap-2 mb-4"
             >
-              Reach me directly
-            </motion.p>
+              <div className="w-1 h-5 rounded-full bg-accent-500" />
+              <p className="text-xs font-semibold tracking-widest uppercase text-accent-500 dark:text-accent-400">
+                Connect
+              </p>
+            </motion.div>
 
-            {contactLinks.map(({ icon: Icon, label, value, href, color, bg, border }) => (
+            {contactLinks.map(({ icon: Icon, label, value, href, color, bg, border, hoverGlow }) => (
               <motion.a
                 key={label}
                 variants={itemVariants}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className={`flex items-center gap-4 p-4 rounded-2xl border ${border} ${bg} hover:scale-[1.02] hover:shadow-md transition-all duration-200`}
+                className={`group relative flex items-center gap-4 p-4 rounded-2xl border ${border} ${bg} hover:-translate-y-1 hover:shadow-2xl ${hoverGlow} transition-all duration-300`}
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-white dark:bg-neutral-900 shadow-sm`}>
+                {/* Purple glow effect on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-500/0 via-purple-500/0 to-accent-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-10" />
+                
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-white dark:bg-neutral-900 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
                   <Icon className={`${color} text-lg`} />
                 </div>
                 <div>
@@ -125,113 +222,28 @@ export default function Contact() {
             ))}
 
             {/* Resume CTA */}
-            <motion.div variants={itemVariants} className="pt-4">
+            <motion.div variants={itemVariants} className="pt-2">
               <a
                 href="/resume.pdf"
                 download
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-accent-500 hover:bg-accent-600 text-white rounded-xl font-medium text-sm shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 transition-all duration-200"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-accent-500 hover:bg-accent-600 text-white rounded-xl font-medium text-sm shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 hover:scale-[1.02] transition-all duration-200"
               >
-                Download Resume
+                📄 Download Resume
               </a>
             </motion.div>
-          </motion.div>
-
-          {/* RIGHT — Contact form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 shadow-sm"
-          >
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="h-full flex flex-col items-center justify-center gap-4 py-12 text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center">
-                  <CheckCircle size={28} className="text-emerald-500" />
-                </div>
-                <h3 className="text-lg font-semibold dark:text-white">Message sent!</h3>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 max-w-xs">
-                  Thanks for reaching out. I'll get back to you within 24 hours.
-                </p>
-                <button
-                  onClick={() => { setSubmitted(false); setForm({ name: "", email: "", message: "" }); }}
-                  className="text-sm text-accent-500 hover:text-accent-600 font-medium transition"
-                >
-                  Send another message
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <h3 className="text-base font-semibold dark:text-white mb-2">Send a message</h3>
-
-                <div className="space-y-1">
-                  <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your name"
-                    className="w-full px-4 py-2.5 text-sm rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:border-accent-400 transition"
-                  />
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your@email.com"
-                    className="w-full px-4 py-2.5 text-sm rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:border-accent-400 transition"
-                  />
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    placeholder="What's on your mind?"
-                    className="w-full px-4 py-2.5 text-sm rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent-500/40 focus:border-accent-400 transition resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-accent-500 hover:bg-accent-600 disabled:opacity-60 text-white rounded-xl font-medium text-sm shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 transition-all duration-200"
-                >
-                  {loading ? (
-                    <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      <Send size={14} />
-                      Send Message
-                    </>
-                  )}
-                </button>
-
-                <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">
-                  * Form is a UI demo. Connect to EmailJS or Formspree to enable real sending.
-                </p>
-              </form>
-            )}
+            
+            {/* Social Proof Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="pt-4 flex items-center justify-center gap-4 text-xs text-neutral-500 dark:text-neutral-500"
+            >
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Active on GitHub</span>
+              </div>
+              <span>•</span>
+              <span>10+ Projects Deployed</span>
+            </motion.div>
           </motion.div>
         </div>
       </section>

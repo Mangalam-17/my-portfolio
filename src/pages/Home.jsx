@@ -15,6 +15,17 @@ const techPills = [
   { icon: SiMongodb, label: "MongoDB" },
 ];
 
+// Category icon mapper
+function getCategoryIcon(categoryTitle) {
+  const iconMap = {
+    'Frontend': '💻',
+    'Backend': '⚙️',
+    'Database': '🗄️',
+    'DevOps & Tools': '🛠️'
+  };
+  return iconMap[categoryTitle] || '📦';
+}
+
 const paragraphLines = [
   { prefix: "Building ", keyword: "scalable applications", suffix: "," },
   { prefix: "crafting ", keyword: "seamless experiences", suffix: "," },
@@ -55,7 +66,7 @@ function AnimatedHeroParagraph() {
   return (
     <motion.p
       variants={itemVariants}
-      className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg"
+      className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg"
     >
       {paragraphLines.map((line, i) => (
         <motion.span
@@ -107,7 +118,7 @@ export default function Home() {
               </p>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 w-fit">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Open to opportunities
+                Seeking Full Time Opportunity
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold leading-tight tracking-tight dark:text-white">
                 <TypewriterText text={headline} />
@@ -231,12 +242,45 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-accent-500 dark:text-accent-400 mb-2">
+          <p className="text-xs font-semibold tracking-widest uppercase text-accent-500 dark:text-accent-400 mb-3">
             Tech Stack
           </p>
-          <h2 className="text-3xl font-bold tracking-tight dark:text-white">
+          <h2 className="text-3xl font-bold tracking-tight dark:text-white mb-4">
             Technical Skills
           </h2>
+          
+          {/* Animated Description with Gradient Highlights */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-3xl"
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              Proficient in modern{" "}
+              <span className="tech-highlight">MERN stack</span> development with{" "}
+              <span className="tech-highlight">production experience</span> across frontend, backend, and{" "}
+              <span className="tech-highlight">cloud deployment</span>.{" "}
+            </motion.span>
+            
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              Skilled in building{" "}
+              <span className="tech-highlight">scalable APIs</span>,{" "}
+              <span className="tech-highlight">responsive UIs</span>, and{" "}
+              <span className="tech-highlight">database design</span>.
+            </motion.span>
+          </motion.div>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -247,10 +291,13 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: catIdx * 0.08 }}
-              className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 space-y-4 hover:border-accent-300 dark:hover:border-accent-500/40 transition-colors"
+              className="group relative bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 space-y-4 hover:border-accent-300 dark:hover:border-accent-500/40 hover:shadow-2xl dark:hover:shadow-accent-500/20 hover:-translate-y-1 transition-all duration-300"
             >
+              {/* Purple glow effect on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-500/0 via-purple-500/0 to-accent-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-10" />
+              
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-5 rounded-full bg-accent-500" />
+                <span className="text-xl">{getCategoryIcon(category.title)}</span>
                 <p className="text-sm font-semibold dark:text-white">{category.title}</p>
               </div>
               <div className="flex flex-wrap gap-2">

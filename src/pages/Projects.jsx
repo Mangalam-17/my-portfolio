@@ -28,9 +28,34 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight dark:text-white mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Applications I've designed, developed, and deployed — from AI-powered platforms to production-grade SaaS systems.
-          </p>
+          {/* Animated Description with Gradient Highlights */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed"
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              Full-stack applications spanning{" "}
+              <span className="tech-highlight">AI-powered platforms</span>,{" "}
+              <span className="tech-highlight">recruitment SaaS</span>, and{" "}
+              <span className="tech-highlight">mental wellness systems</span>.{" "}
+            </motion.span>
+            
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              Built with the{" "}
+              <span className="tech-highlight">MERN stack</span> and deployed to{" "}
+              <span className="tech-highlight">production</span>.
+            </motion.span>
+          </motion.div>
         </motion.div>
 
         {/* Featured Projects - Large Cards */}

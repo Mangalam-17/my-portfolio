@@ -171,6 +171,44 @@ html { scroll-behavior: smooth; }
   55%, 100% { background-position: 100% 50%; }
 }
 
+/* ── Tech highlight with gradient and shimmer ── */
+.tech-highlight {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  animation: techShimmer 3s ease-in-out infinite;
+  cursor: default;
+  transition: transform 0.2s ease;
+}
+
+.tech-highlight:hover {
+  transform: translateY(-1px);
+  animation: techShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes techShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Dark mode tech highlight */
+.dark .tech-highlight {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+}
+
 /* ── Project card premium glow ── */
 @keyframes projectGlow {
   0%, 100% {
