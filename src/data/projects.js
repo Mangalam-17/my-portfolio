@@ -1,11 +1,21 @@
 export const projects = [
   {
     title: "Shortlisto",
+    category: "Recruitment SaaS",
+    type: "Full Stack SaaS",
     image: "/projects/shortlisto.png",
     live: "https://shortlisto.vercel.app",
     source: "https://github.com/Mangalam-17/Shortlisto",
     description:
-      "Production-ready full-stack recruitment management platform streamlining hiring workflows, candidate management, online technical assessments, analytics, and secure role-based access control.",
+      "Built a production-ready recruitment management platform streamlining end-to-end hiring workflows with candidate lifecycle management, real-time technical assessments, analytics dashboards, and secure multi-role access control systems.",
+    featured: true,
+    metrics: [
+      { icon: "⚡", label: "30+ REST APIs" },
+      { icon: "👥", label: "Multi-Role Access" },
+      { icon: "🔐", label: "JWT Authentication" },
+      { icon: "☁️", label: "Cloud Deployed" },
+      { icon: "🚀", label: "Production Ready" },
+    ],
     tech: [
       "React.js",
       "Node.js",
@@ -19,12 +29,49 @@ export const projects = [
     ],
   },
   {
+    title: "PeopleSync",
+    category: "HRMS Platform",
+    type: "HR Management System",
+    image: "/projects/peoplesync.png",
+    live: "https://peoplesync-demo.vercel.app",
+    source: "https://github.com/Mangalam-17/people-sync",
+    description:
+      "Engineered a comprehensive HR management system featuring employee lifecycle management, attendance tracking with automated workflows, leave management systems, performance analytics, and role-based access control for seamless workforce operations.",
+    featured: true,
+    metrics: [
+      { icon: "👥", label: "Employee Management" },
+      { icon: "📊", label: "Analytics Dashboard" },
+      { icon: "🔐", label: "Role-Based Access" },
+      { icon: "⏰", label: "Automated Workflows" },
+      { icon: "🚀", label: "Production Grade" },
+    ],
+    tech: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT Auth",
+      "REST APIs",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+  },
+  {
     title: "Interview Mate",
+    category: "AI Platform",
+    type: "AI Interview Prep",
     image: "/projects/interview.png",
     live: "https://interview-mate-frontend.vercel.app/",
     source: "https://github.com/Mangalam-17/InterviewMate",
     description:
-      "AI-powered interview preparation platform with personalized question generation and structured evaluation workflows.",
+      "Engineered an AI-powered interview preparation platform leveraging Gemini API for dynamic, role-specific question generation with personalized feedback workflows and structured evaluation systems.",
+    featured: false,
+    metrics: [
+      { icon: "🤖", label: "AI-Powered" },
+      { icon: "⚡", label: "RESTful APIs" },
+      { icon: "🔐", label: "Secure Auth" },
+      { icon: "☁️", label: "Cloud Hosted" },
+    ],
     tech: [
       "React",
       "Node.js",
@@ -38,11 +85,20 @@ export const projects = [
   },
   {
     title: "Mind Space",
+    category: "Mental Wellness",
+    type: "Health Tech SPA",
     image: "/projects/mindspace.png",
     live: "https://mind-space-sigma.vercel.app/",
     source: "https://github.com/Mangalam-17/MindSpace",
     description:
-      "Mental health companion offering mood tracking, guided therapy modules, and peer support workflows in a full-stack SPA.",
+      "Developed a full-stack mental wellness companion featuring mood tracking analytics, therapy-based modules, peer support systems, and persistent session management for continuous care delivery.",
+    featured: false,
+    metrics: [
+      { icon: "📊", label: "Mood Analytics" },
+      { icon: "🔐", label: "JWT Auth" },
+      { icon: "⚡", label: "REST APIs" },
+      { icon: "☁️", label: "Deployed" },
+    ],
     tech: [
       "React",
       "Node.js",
@@ -55,11 +111,20 @@ export const projects = [
   },
   {
     title: "BlogSpace",
+    category: "Content Platform",
+    type: "Blog Platform",
     image: "/projects/blogspace.png",
     live: "https://blogspace-rvos.onrender.com/",
     source: "https://github.com/Mangalam-17/BlogSpace",
     description:
-      "A clean blogging platform where users can publish, read, and share blogs. Built with server-side rendering using EJS, Express, and MongoDB.",
+      "Built a server-rendered blogging platform supporting SEO-friendly content publishing, user authentication, markdown editing, and scalable content management with MongoDB persistence.",
+    featured: false,
+    metrics: [
+      { icon: "📝", label: "Content CMS" },
+      { icon: "🔍", label: "SEO Optimized" },
+      { icon: "🔐", label: "User Auth" },
+      { icon: "📦", label: "MongoDB" },
+    ],
     tech: [
       "Node.js",
       "Express.js",
